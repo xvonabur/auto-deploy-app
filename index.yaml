@@ -2,20 +2,47 @@ apiVersion: v1
 entries:
   auto-deploy-app:
   - apiVersion: v1
-    created: 2019-03-28T22:20:11.668063+03:00
+    created: "2021-01-29T15:07:32.765119+03:00"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://gitlab-org.gitlab.io/cluster-integration/helm-stable-archive
+      version: 0.7.1
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.helm.sh/stable
+      version: 3.8.0
+    description: GitLab's Auto-deploy Helm Chart
+    digest: 8d9d0a3244eefcb7b16fade14f99586784f4fe65b990a2b2c63e6f7b9b5f3d8b
+    icon: https://gitlab.com/gitlab-com/gitlab-artwork/raw/master/logo/logo-square.png
+    name: auto-deploy-app
+    urls:
+    - auto-deploy-app-0.3.0.tgz
+    version: 0.3.0
+  - apiVersion: v1
+    created: "2021-01-29T15:07:32.757638+03:00"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://kubernetes-charts.storage.googleapis.com/
+      version: 0.7.1
+    - condition: redis.enabled
+      name: redis
+      repository: https://kubernetes-charts.storage.googleapis.com/
+      version: 3.8.0
     description: GitLab's Auto-deploy Helm Chart
     digest: 606a1fd73bc89eacd84ac4c7460140de7c01146da60918683f4faa689f43eb8d
     icon: https://gitlab.com/gitlab-com/gitlab-artwork/raw/master/logo/logo-square.png
     name: auto-deploy-app
     urls:
-    - https://xvonabur.github.io/auto-deploy-app/auto-deploy-app-0.2.9.tgz
+    - auto-deploy-app-0.2.9.tgz
     version: 0.2.9
   postgresql:
-  - created: 2019-03-28T22:20:11.668547+03:00
+  - apiVersion: v1
+    created: "2021-01-29T15:07:32.765884+03:00"
     description: Object-relational database management system (ORDBMS) with an emphasis
       on extensibility and on standards-compliance.
     digest: ecf42115a26e41e69819d25bd1cd91bbc0d949c8d5ccb135c1668094763e571b
-    engine: gotpl
     home: https://www.postgresql.org/
     icon: https://www.postgresql.org/media/img/about/press/elephant.png
     keywords:
@@ -31,16 +58,16 @@ entries:
     - https://github.com/kubernetes/charts
     - https://github.com/docker-library/postgres
     urls:
-    - https://xvonabur.github.io/auto-deploy-app/charts/postgresql-0.7.1.tgz
+    - charts/postgresql-0.7.1.tgz
     version: 0.7.1
   redis:
-  - appVersion: 4.0.11
-    created: 2019-03-28T22:20:11.669485+03:00
+  - apiVersion: v1
+    appVersion: 4.0.11
+    created: "2021-01-29T15:07:32.7675+03:00"
     description: Open source, advanced key-value store. It is often referred to as
       a data structure server since keys can contain strings, hashes, lists, sets
       and sorted sets.
     digest: c9127a7c4b59c025ba067ca707d0a5bff7d5413a49e0954d19c17ba882d1f854
-    engine: gotpl
     home: http://redis.io/
     icon: https://bitnami.com/assets/stacks/redis/img/redis-stack-220x234.png
     keywords:
@@ -54,6 +81,6 @@ entries:
     sources:
     - https://github.com/bitnami/bitnami-docker-redis
     urls:
-    - https://xvonabur.github.io/auto-deploy-app/charts/redis-3.8.0.tgz
+    - charts/redis-3.8.0.tgz
     version: 3.8.0
-generated: 2019-03-28T22:20:11.664214+03:00
+generated: "2021-01-29T15:07:32.751218+03:00"
